@@ -1,3 +1,4 @@
+import courses from "../Database/courses.js";
 import Database from "../Database/index.js";
 
 export function deleteCourse(courseId) {
@@ -33,3 +34,14 @@ export function findCoursesForEnrolledUser(userId) {
   }
   
   
+  // export function findCoursesForEnrolledUser(userId){
+  //   const {Courses} = Database;
+  //   const course = Courses.find((c) => c.userId === userId);
+  //   return course;
+  // }
+
+// export default function deleteCourse(courseId){
+//   const {Courses} = Database;
+//   const courses = Courses.filter((c) => c._id !== courseId);
+//   return courses;
+// }

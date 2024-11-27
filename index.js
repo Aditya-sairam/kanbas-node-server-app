@@ -7,6 +7,8 @@ import cors from "cors";
 import CourseRoutes from './kanbas/Courses/routes.js';
 import ModuleRoutes from './kanbas/Modules/routes.js';
 import AssignmentRoutes from './kanbas/Assignments/routes.js';
+import PracticeLab from './PracticeLab/index.js';
+import PathParameters from './Lab5/PathParameters.js';
 
 
 const app = express() 
@@ -40,6 +42,8 @@ UserRoutes(app);
 CourseRoutes(app)
 ModuleRoutes(app);
 AssignmentRoutes(app)
+PracticeLab(app);
+PathParameters(app);
 
 
 app.listen(4000||process.env.PORT )

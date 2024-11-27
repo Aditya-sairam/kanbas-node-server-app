@@ -31,9 +31,9 @@ export default function AssignmentRoutes(app) {
   app.put("/api/Assignments/:assignmentId", (req, res) => {
     console.log(req.params)
     const { assignmentId } = req.params;
-    // console.log(assignmentId)
+    
     const AssignmentUpdates = req.body;
-    // console.log(Ass)
+   
     const status = dao.updateAssignment(assignmentId, AssignmentUpdates);
     res.send(status);
   });

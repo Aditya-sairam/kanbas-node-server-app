@@ -16,3 +16,4 @@ export const updateUser = (userId, user) => (users = users.map((u) => (u._id ===
 
   export const deleteUser = (userId) => (users = users.filter((u) => u._id !== userId));
   
+// export const updateUser = (userId,user) => (users = users.map((u) => (u._id === userId ? user:u)));

@@ -17,6 +17,13 @@ export default function UserRoutes(app) {
     res.json(currentUser);
   };
 
+  // const updateuser = (req,res) => {
+  //   const userId = req.params.userId;
+  //   const userUpdates = req.body; 
+  //   dao.updateUser(userId,userUpdates);
+  //   res.json(currentUser)
+  // }
+
 
   const signup = async (req, res) => {
     const user = dao.findByUsername(req.body);
@@ -80,6 +87,27 @@ export default function UserRoutes(app) {
     enrollmentsDao.enrollUserInCourse(currentUser._id, newCourse._id);
     res.json(newCourse);
   };
+  const enrollUserInCourse = (req,res) => {
+    const currentUser = req.session["currentUser"];
+    const enrollCourse = req.body;
+    console.log("This is the course!")
+    console.log(enrollCourse)
+    enrollmentsDao.enrollUserInCourse(currentUser._id,enrollCourse._id);
+    //console.log()
+    res.json(enrollCourse)
+  }
+
+  const unenrollUsersFromCourse = (req,res) => {
+    const currentUser = req.session["currentUser"];
+    const enrollCourseId = req.params.courseId;
+    console.log("Course id from Routes")
+    console.log(enrollCourseId)
+    enrollmentsDao.unEnrollUsers(currentUser._id,enrollCourseId);
+    // enrolledCourse = 
+    res.send(enrollCourseId)
+  }
+  app.post("/api/users/:userId/enrollCourse",enrollUserInCourse);
+  app.get("/api/users/:userId/unenrollCourse/:courseId",unenrollUsersFromCourse);
   app.get("/api/users/:userId/courses", findCoursesForEnrolledUser);
 
   app.post("/api/users/current/courses", createCourse);
