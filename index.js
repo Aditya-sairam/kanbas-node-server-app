@@ -1,5 +1,5 @@
 import express from 'express';
-import Lab5 from './Lab5/index.js';
+
 import UserRoutes from './kanbas/Users/routes.js';
 import session from "express-session";
 import "dotenv/config";
