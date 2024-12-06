@@ -28,22 +28,22 @@ export default function AssignmentRoutes(app) {
     const Assignment = AssignmmnetDuo.findAssignmentById(courseId,assignmentId)
     res.send(Assignment);
   })
-  app.put("/api/Assignments/:assignmentId", (req, res) => {
+  app.put("/api/Assignments/:assignmentId", async(req, res) => {
     console.log(req.params)
     const { assignmentId } = req.params;
     
     const AssignmentUpdates = req.body;
    
-    const status = dao.updateAssignment(assignmentId, AssignmentUpdates);
+    const status = await dao.updateAssignment(assignmentId, AssignmentUpdates);
     res.send(status);
   });
   app.get("/api/Assignments", (req, res) => {
     const Assignments = dao.findAllAssignments();
     res.send(Assignments);
   });
-  app.delete("/api/Assignments/:AssignmentId", (req, res) => {
+  app.delete("/api/Assignments/:AssignmentId", async (req, res) => {
     const { AssignmentId } = req.params;
-    const status = dao.deleteAssignment(AssignmentId);
+    const status = await dao.deleteAssignment(AssignmentId);
     res.send(status);
   });
 

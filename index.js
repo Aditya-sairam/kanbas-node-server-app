@@ -9,7 +9,12 @@ import ModuleRoutes from './kanbas/Modules/routes.js';
 import AssignmentRoutes from './kanbas/Assignments/routes.js';
 import PracticeLab from './PracticeLab/index.js';
 import PathParameters from './Lab5/PathParameters.js';
+import mongoose from "mongoose";
+import "dotenv/config";
 
+
+const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
+mongoose.connect(CONNECTION_STRING);
 
 const app = express() 
 
