@@ -1,4 +1,4 @@
-import Module from "./module.js";
+import Module from "./Module.js";
 import PathParameters from "./PathParameters.js";
 import QueryParameters from "./QueryParameters.js";
 import WorkingWithArrays from "./WorkingWithArrays.js";
